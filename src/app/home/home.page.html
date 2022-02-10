@@ -452,5 +452,40 @@
         <ion-col size="3" size-lg> ion-col [size="3"] [size-lg] </ion-col>
       </ion-row>
     </ion-grid> -->
+
+    <!-- Infinite scroll -->
+    <ion-button (click)="toggleInfiniteScroll()" expand="block">
+      Toggle Infinite Scroll
+    </ion-button>
+
+    <ion-list></ion-list>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data..."
+      >
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <!-- Item -->
+    <!-- Default Item -->
+    <ion-item>
+      <ion-label> Item </ion-label>
+    </ion-item>
+
+    <!-- Item as a Button -->
+    <!-- <ion-item button (click)="buttonClick()">
+      <ion-label> Button Item </ion-label>
+    </ion-item> -->
+
+    <!-- Item as an Anchor -->
+    <ion-item href="https://www.ionicframework.com">
+      <ion-label> Anchor Item </ion-label>
+    </ion-item>
+
+    <ion-item color="secondary">
+      <ion-label> Secondary Color Item </ion-label>
+    </ion-item>
   </div>
 </ion-content>
