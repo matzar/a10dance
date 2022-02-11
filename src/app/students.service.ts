@@ -19,6 +19,12 @@ export interface Student {
   parentEmail?: string;
   parentPhone?: string;
   photoUrl?: string;
+  /**
+   * This line indicates that the status field is an optional string value,
+   * which may only contain one of two values: present or absent.
+   * Though this will not be enforced at runtime,
+   * the TypeScript compiler will prevent you from assigning any other value.
+   */
   status?: 'present' | 'absent';
 }
 
