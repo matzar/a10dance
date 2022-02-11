@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { Observable, timer } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,15 @@ export class HomePage {
     { val: 'Mushroom', isChecked: false },
   ];
 
-  constructor() {}
+  public num;
+
+  constructor() {
+    const numbers = timer(10, 1000);
+    numbers.subscribe((n) => {
+      this.num = n / 100;
+      console.log(this.num);
+    });
+  }
 
   loadData(event) {
     setTimeout(() => {

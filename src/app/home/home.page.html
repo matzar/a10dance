@@ -120,7 +120,8 @@
       <!-- Default Progressbar with 50 percent -->
       <!-- ? we could pass the normalized number of files already uploaded to the value attribute to make the loading bar move -->
       <!-- <ion-progress-bar value="0.5"></ion-progress-bar> -->
-      <ion-progress-bar value="0.25" buffer="0.5"></ion-progress-bar>
+      {{num}}
+      <ion-progress-bar value="{{num}}" buffer="0.5"></ion-progress-bar>
 
       <!-- Colorize Progressbar -->
       <!-- <ion-progress-bar color="primary" value="0.5"></ion-progress-bar> -->
