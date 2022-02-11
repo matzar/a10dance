@@ -16,13 +16,26 @@ export class HomePage {
     { val: 'Mushroom', isChecked: false },
   ];
 
-  public num;
+  public num: number;
+  public col = 'light';
 
   constructor() {
     const numbers = timer(10, 1000);
     numbers.subscribe((n) => {
       this.num = n / 100;
       console.log(this.num);
+
+      if (this.num > 0.029 && this.num < 0.059) {
+        this.col = 'medium';
+      }
+
+      if (this.num > 0.059 && this.num < 0.099) {
+        this.col = 'dark';
+      }
+
+      if (this.num === 0.1) {
+        this.col = 'success';
+      }
     });
   }
 
