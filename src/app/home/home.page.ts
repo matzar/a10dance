@@ -20,20 +20,20 @@ export class HomePage {
   public col = 'light';
 
   constructor() {
-    const numbers = timer(10, 1000);
+    const numbers = timer(10, 100);
     numbers.subscribe((n) => {
       this.num = n / 100;
       console.log(this.num);
 
-      if (this.num > 0.029 && this.num < 0.059) {
+      if (this.num > 0.29 && this.num < 0.59) {
         this.col = 'medium';
       }
 
-      if (this.num > 0.059 && this.num < 0.099) {
+      if (this.num > 0.59 && this.num < 0.99) {
         this.col = 'dark';
       }
 
-      if (this.num === 0.1) {
+      if (this.num === 1.0) {
         this.col = 'success';
       }
     });
