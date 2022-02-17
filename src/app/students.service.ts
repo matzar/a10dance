@@ -42,6 +42,10 @@ const mockStudents: Student[] = [
 ];
 
 @Injectable({
+  // When you provide the service to a root injector,
+  // that instance of the service is shared and available
+  // in every class that needs the service.
+  // This is ideal when a service is sharing methods or state.
   providedIn: 'root',
 })
 export class StudentsService {
