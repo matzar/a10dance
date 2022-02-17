@@ -22,4 +22,8 @@ export class RosterPage implements OnInit {
   ngOnInit() {
     this.students = this.studentService.getAllStudents();
   }
+
+  setStudentStatus(student) {
+    student.status = !student.status;
+  }
 }

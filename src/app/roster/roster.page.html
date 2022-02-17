@@ -20,12 +20,12 @@
         <ion-icon slot="start" icon="person"></ion-icon>
         <ion-label> {{student.firstName}} {{student.lastName}} </ion-label>
         <ion-icon
-          *ngIf="student.status==='present'"
+          *ngIf="student.status===true"
           slot="end"
           icon="eye"
         ></ion-icon>
         <ion-icon
-          *ngIf="student.status==='absent'"
+          *ngIf="student.status===false"
           slot="end"
           icon="eye-off"
         ></ion-icon>
@@ -35,7 +35,7 @@
       </ion-item-options>
       <ion-item-options side="start">
         <ion-item-option color="success" expandable="false"
-          ><ion-icon icon="star"></ion-icon>
+          ><ion-icon icon="star" (click)="setStudentStatus(student)"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>

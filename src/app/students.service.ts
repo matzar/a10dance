@@ -26,20 +26,20 @@ export interface Student {
    * Though this will not be enforced at runtime,
    * the TypeScript compiler will prevent you from assigning any other value.
    */
-  status?: 'present' | 'absent';
+  status?: true | false;
 }
 
 const mockStudents: Student[] = [
-  { id: '1', firstName: 'Greg', lastName: 'Marine', status: 'present' },
-  { id: '2', firstName: 'Jonathan', lastName: 'Bennett', status: 'present' },
-  { id: '3', firstName: 'Neil', lastName: 'Estandarte', status: 'present' },
-  { id: '4', firstName: 'Jen', lastName: 'Townsend', status: 'absent' },
-  { id: '5', firstName: 'Casey', lastName: 'McBride', status: 'present' },
-  { id: '6', firstName: 'Diane', lastName: 'Rivera', status: 'absent' },
-  { id: '7', firstName: 'Troy', lastName: 'Gutierrez', status: 'absent' },
-  { id: '8', firstName: 'Priscilla', lastName: 'Little', status: 'present' },
-  { id: '9', firstName: 'Bobby', lastName: 'Robbins', status: 'present' },
-  { id: '10', firstName: 'Edmund', lastName: 'Gardner', status: 'present' },
+  { id: '1', firstName: 'Greg', lastName: 'Marine', status: true },
+  { id: '2', firstName: 'Jonathan', lastName: 'Bennett', status: true },
+  { id: '3', firstName: 'Neil', lastName: 'Estandarte', status: true },
+  { id: '4', firstName: 'Jen', lastName: 'Townsend', status: false },
+  { id: '5', firstName: 'Casey', lastName: 'McBride', status: true },
+  { id: '6', firstName: 'Diane', lastName: 'Rivera', status: false },
+  { id: '7', firstName: 'Troy', lastName: 'Gutierrez', status: false },
+  { id: '8', firstName: 'Priscilla', lastName: 'Little', status: true },
+  { id: '9', firstName: 'Bobby', lastName: 'Robbins', status: true },
+  { id: '10', firstName: 'Edmund', lastName: 'Gardner', status: true },
 ];
 
 @Injectable({
