@@ -30,16 +30,16 @@ export interface Student {
 }
 
 const mockStudents: Student[] = [
-  { id: '1', firstName: 'Greg', lastName: 'Marine' },
-  { id: '2', firstName: 'Jonathan', lastName: 'Bennett' },
-  { id: '3', firstName: 'Neil', lastName: 'Estandarte' },
-  { id: '4', firstName: 'Jen', lastName: 'Townsend' },
-  { id: '5', firstName: 'Casey', lastName: 'McBride' },
-  { id: '6', firstName: 'Diane', lastName: 'Rivera' },
-  { id: '7', firstName: 'Troy', lastName: 'Gutierrez' },
-  { id: '8', firstName: 'Priscilla', lastName: 'Little' },
-  { id: '9', firstName: 'Bobby', lastName: 'Robbins' },
-  { id: '10', firstName: 'Edmund', lastName: 'Gardner' },
+  { id: '1', firstName: 'Greg', lastName: 'Marine', status: 'present' },
+  { id: '2', firstName: 'Jonathan', lastName: 'Bennett', status: 'present' },
+  { id: '3', firstName: 'Neil', lastName: 'Estandarte', status: 'present' },
+  { id: '4', firstName: 'Jen', lastName: 'Townsend', status: 'absent' },
+  { id: '5', firstName: 'Casey', lastName: 'McBride', status: 'present' },
+  { id: '6', firstName: 'Diane', lastName: 'Rivera', status: 'absent' },
+  { id: '7', firstName: 'Troy', lastName: 'Gutierrez', status: 'absent' },
+  { id: '8', firstName: 'Priscilla', lastName: 'Little', status: 'present' },
+  { id: '9', firstName: 'Bobby', lastName: 'Robbins', status: 'present' },
+  { id: '10', firstName: 'Edmund', lastName: 'Gardner', status: 'present' },
 ];
 
 @Injectable({
@@ -52,7 +52,7 @@ const mockStudents: Student[] = [
 export class StudentsService {
   constructor() {}
 
-  getAll() {
+  getAllStudents() {
     // ... is a shorthand for making a shallow copy of an array.
     return [...mockStudents];
   }
