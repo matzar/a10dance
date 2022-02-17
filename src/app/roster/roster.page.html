@@ -23,11 +23,13 @@
           *ngIf="student.status===true"
           slot="end"
           icon="eye"
+          (click)="setStudentStatus(student)"
         ></ion-icon>
         <ion-icon
           *ngIf="student.status===false"
           slot="end"
           icon="eye-off"
+          (click)="setStudentStatus(student)"
         ></ion-icon>
       </ion-item>
       <ion-item-options side="end">
