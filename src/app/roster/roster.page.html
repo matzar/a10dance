@@ -35,9 +35,9 @@
       <ion-item-options side="end">
         <ion-item-option color="danger">Delete</ion-item-option>
       </ion-item-options>
-      <ion-item-options side="start">
-        <ion-item-option color="success" expandable="false"
-          ><ion-icon icon="star" (click)="setStudentStatus(student)"></ion-icon>
+      <ion-item-options side="start" (ionSwipe)="setStudentStatus(student)">
+        <ion-item-option color="success" expandable="true">
+          <!-- <ion-icon icon="star" (click)="setStudentStatus(student)"></ion-icon> -->
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
