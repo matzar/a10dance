@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
  * - and intellisense inside the code editor.
  */
 
+// The purpose of interface is typechecking and code completion
 export interface Student {
   id: string;
   firstName: string;
