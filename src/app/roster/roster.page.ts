@@ -27,7 +27,8 @@ export class RosterPage implements OnInit {
     student.status = !student.status;
   }
 
-  deleteStudent(student) {
+  deleteStudent(student): Student[] {
     this.students.splice(this.students.indexOf(student), 1);
+    return student;
   }
 }
