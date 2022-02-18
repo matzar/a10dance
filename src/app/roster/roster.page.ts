@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService, Student } from '../students.service';
-import { ActionSheetController, AlertController } from '@ionic/angular';
+import {
+  ActionSheetController,
+  AlertController,
+  ToastController,
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-roster',
@@ -19,6 +23,7 @@ export class RosterPage implements OnInit {
   constructor(
     public actionSheetController: ActionSheetController,
     public alertController: AlertController,
+    public toastController: ToastController,
     private studentService: StudentsService
   ) {}
 
@@ -32,11 +37,11 @@ export class RosterPage implements OnInit {
     student.status = !student.status;
   }
 
-  async deleteStudent(students: Student) {
+  // DATABASE FUNCTIONS
+  async deleteStudent(student: Student) {
     // this.students.splice(this.students.indexOf(students), 1);
-    this.students = this.students.filter(
-      (student) => student.id !== students.id
-    );
+    this.students = this.students.filter((el) => el.id !== student.id);
+    this.presentToast(student);
   }
 
   async deleteStudents(toDelete: Student[]) {
@@ -48,6 +53,7 @@ export class RosterPage implements OnInit {
     );
   }
 
+  // ACTION SHEET
   async presentActionSheet(student: Student): Promise<void> {
     // The create function accepts an options object and returns a promise,
     // which resolves to the action sheet component itself.
@@ -145,6 +151,7 @@ export class RosterPage implements OnInit {
     console.log('onDidDismiss resolved with role and data', role, data);
   }
 
+  // ALERTS
   async presentDeleteAlert(student: Student) {
     const alert = await this.alertController.create({
       header: 'Delete student?',
@@ -255,5 +262,14 @@ export class RosterPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  // TOASTS
+  async presentToast(student) {
+    const toast = await this.toastController.create({
+      message: `${student.firstName} ${student.lastName} deleted.`,
+      duration: 2000,
+    });
+    toast.present();
   }
 }
