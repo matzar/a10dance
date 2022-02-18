@@ -110,17 +110,20 @@ export class RosterPage implements OnInit {
 
   async presentDeleteAlert(student: Student) {
     const input = [];
+    const toDelete = [];
 
     this.students.forEach((el: Student) =>
       input.push({
         name: `${el.firstName} ${el.lastName}`,
         type: 'checkbox',
         label: `${el.firstName} ${el.lastName}`,
-        value: 'value1',
+        value: `${el.firstName} ${el.lastName}`,
         handler: () => {
-          console.log('Checkbox 1 selected');
+          console.log(`${el.firstName} ${el.lastName} selected`);
+          toDelete.push(el);
+          console.log(toDelete);
         },
-        checked: true,
+        checked: false,
       })
     );
 
