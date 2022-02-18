@@ -276,17 +276,19 @@ export class RosterPage implements OnInit {
 
   async presentToastWithOptions(toDelete: Student[]) {
     const toast = await this.toastController.create({
-      header: 'Toast header',
-      message: 'Click to Close',
+      header: 'Deleted students:',
+      message: toDelete
+        .map((el) => ` ${el.firstName} ${el.lastName}`)
+        .toString(),
       icon: 'information-circle',
       position: 'top',
       buttons: [
         {
           side: 'start',
-          icon: 'star',
-          text: 'Favorite',
+          icon: 'share',
+          text: 'Share',
           handler: () => {
-            console.log('Favorite clicked');
+            console.log('Share clicked');
           },
         },
         {
