@@ -271,6 +271,11 @@ export class RosterPage implements OnInit {
       message: `${student.firstName} ${student.lastName} deleted.`,
       color: 'danger',
       duration: 2000,
+      translucent: true,
+      animated: true,
+      icon: 'warning',
+      // If true, the keyboard will be automatically dismissed when the overlay is presented.
+      keyboardClose: true,
     });
     toast.present();
   }
@@ -284,15 +289,16 @@ export class RosterPage implements OnInit {
       icon: 'information-circle',
       position: 'top',
       color: 'warning',
+
       buttons: [
-        {
-          side: 'start',
-          icon: 'share',
-          text: 'Share',
-          handler: () => {
-            console.log('Share clicked');
-          },
-        },
+        // {
+        //   side: 'start',
+        //   icon: 'share',
+        //   text: 'Share',
+        //   handler: () => {
+        //     console.log('Share clicked');
+        //   },
+        // },
         {
           text: 'Done',
           role: 'cancel',
