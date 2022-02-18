@@ -36,7 +36,10 @@ export class RosterPage implements OnInit {
     return student;
   }
 
-  async presentActionSheet(student: Student) {
+  async presentActionSheet(student: Student): Promise<void> {
+    // The create function accepts an options object and returns a promise,
+    // which resolves to the action sheet component itself.
+    // This means you must await it, which means the presentActionSheet function has to be marked as async.
     const actionSheet = await this.actionSheetController.create({
       header: `${student.firstName} ${student.lastName}`,
       cssClass: 'my-custom-class',
@@ -52,6 +55,14 @@ export class RosterPage implements OnInit {
           handler: () => {
             console.log('Delete clicked');
             this.deleteStudent(student);
+          },
+        },
+        {
+          text: student.status ? 'Absent' : 'Present',
+          icon: student.status ? 'eye-off' : 'eye',
+          id: 'mark-present',
+          handler: () => {
+            this.setStudentStatus(student);
           },
         },
         {
@@ -87,6 +98,9 @@ export class RosterPage implements OnInit {
         },
       ],
     });
+    // Once you have a reference to the action sheet component,
+    // you can display it by calling its present function.
+    // This function also returns a promise, so you may wish to await that call also.
     await actionSheet.present();
 
     const { role, data } = await actionSheet.onDidDismiss();
