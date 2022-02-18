@@ -16,8 +16,24 @@
   <ion-list>
     <ion-item-sliding *ngFor="let student of students">
       <ion-item>
+        <ion-buttons slot="end">
+          <ion-button (click)="presentActionSheet(student)">
+            <ion-icon
+              slot="icon-only"
+              ios="ellipsis-horizontal"
+              md="ellipsis-vertical"
+            ></ion-icon>
+          </ion-button>
+          <ion-button>
+            <ion-icon
+              slot="icon-only"
+              name="chevron-forward-outline"
+            ></ion-icon>
+          </ion-button>
+        </ion-buttons>
         <!-- ion-icon and ion-label are siblings here -->
         <ion-icon slot="start" icon="person"></ion-icon>
+
         <ion-label (click)="presentActionSheet(student)">
           {{student.firstName}} {{student.lastName}}
         </ion-label>

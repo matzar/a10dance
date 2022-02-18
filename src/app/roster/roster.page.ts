@@ -42,7 +42,7 @@ export class RosterPage implements OnInit {
     // This means you must await it, which means the presentActionSheet function has to be marked as async.
     const actionSheet = await this.actionSheetController.create({
       header: `${student.firstName} ${student.lastName}`,
-      cssClass: 'my-custom-class',
+      cssClass: 'list-roster',
       buttons: [
         {
           text: 'Delete',
