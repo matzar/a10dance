@@ -109,17 +109,36 @@ export class RosterPage implements OnInit {
   }
 
   async presentDeleteAlert(student: Student) {
+    const input = [];
+
+    this.students.forEach((el: Student) =>
+      input.push({
+        name: `${el.firstName} ${el.lastName}`,
+        type: 'checkbox',
+        label: `${el.firstName} ${el.lastName}`,
+        value: 'value1',
+        handler: () => {
+          console.log('Checkbox 1 selected');
+        },
+        checked: true,
+      })
+    );
+
+    console.log(input);
+
     const alert = await this.alertController.create({
       header: 'Delete student?',
       subHeader: `${student.firstName} ${student.lastName}`,
       message: 'This operation cannot be undone.',
+      inputs: input,
       buttons: [
         {
           text: 'Delete',
+          role: 'destructive',
           handler: () => this.deleteStudent(student),
         },
         {
-          text: 'Never mind',
+          text: 'Cancel',
           role: 'cancel',
         },
       ],
