@@ -36,9 +36,9 @@ export class RosterPage implements OnInit {
     return student;
   }
 
-  async presentActionSheet() {
+  async presentActionSheet(student: Student) {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Albums',
+      header: `${student.firstName} ${student.lastName}`,
       cssClass: 'my-custom-class',
       buttons: [
         {
@@ -51,6 +51,7 @@ export class RosterPage implements OnInit {
           },
           handler: () => {
             console.log('Delete clicked');
+            this.deleteStudent(student);
           },
         },
         {

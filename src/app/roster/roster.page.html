@@ -18,7 +18,9 @@
       <ion-item>
         <!-- ion-icon and ion-label are siblings here -->
         <ion-icon slot="start" icon="person"></ion-icon>
-        <ion-label (click)="presentActionSheet()"> {{student.firstName}} {{student.lastName}} </ion-label>
+        <ion-label (click)="presentActionSheet(student)">
+          {{student.firstName}} {{student.lastName}}
+        </ion-label>
         <ion-icon
           *ngIf="student.status===true"
           slot="end"
