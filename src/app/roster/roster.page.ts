@@ -289,7 +289,7 @@ export class RosterPage implements OnInit {
       icon: 'information-circle',
       position: 'top',
       color: 'warning',
-
+      // no duration attribute so the toast will have to dismissed by the user by clicking some of the buttons.
       buttons: [
         // {
         //   side: 'start',
