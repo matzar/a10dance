@@ -269,6 +269,7 @@ export class RosterPage implements OnInit {
   async presentToast(student) {
     const toast = await this.toastController.create({
       message: `${student.firstName} ${student.lastName} deleted.`,
+      color: 'danger',
       duration: 2000,
     });
     toast.present();
@@ -282,6 +283,7 @@ export class RosterPage implements OnInit {
         .toString(),
       icon: 'information-circle',
       position: 'top',
+      color: 'warning',
       buttons: [
         {
           side: 'start',
