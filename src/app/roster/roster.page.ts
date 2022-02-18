@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StudentsService, Student } from '../students.service';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 
