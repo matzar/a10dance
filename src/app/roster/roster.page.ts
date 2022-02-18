@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudentsService, Student } from '../students.service';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 
@@ -80,6 +80,19 @@ export class RosterPage implements OnInit {
           handler: () => {
             console.log('Delete Many clicked');
             this.presentDeleteManyAlert(student);
+          },
+        },
+        {
+          text: 'Delete Choose',
+          role: 'destructive',
+          icon: 'trash',
+          id: 'delete-choose-button',
+          data: {
+            type: 'delete',
+          },
+          handler: () => {
+            console.log('Delete Choose clicked');
+            this.presentDeleteChooseAlert(student);
           },
         },
         {
@@ -187,6 +200,51 @@ export class RosterPage implements OnInit {
           role: 'desctuctive',
           handler: () => {
             this.deleteStudents(toDelete);
+          },
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
+  async presentDeleteChooseAlert(student: Student) {
+    const input = [];
+    let toDelete: Student;
+
+    this.students.forEach((el: Student) =>
+      input.push({
+        name: `${el.firstName} ${el.lastName}`,
+        type: 'radio',
+        label: `${el.firstName} ${el.lastName}`,
+        value: `${el.firstName} ${el.lastName}`,
+        handler: () => {
+          toDelete = el;
+          console.log(
+            `${toDelete.firstName} ${toDelete.lastName} selected to delete`
+          );
+        },
+        checked: false,
+      })
+    );
+
+    console.log(input);
+
+    const alert = await this.alertController.create({
+      header: 'Delete student?',
+      subHeader: `${student.firstName} ${student.lastName}`,
+      message: 'This operation cannot be undone.',
+      inputs: input,
+      buttons: [
+        {
+          text: 'Delete',
+          role: 'desctuctive',
+          handler: () => {
+            this.deleteStudent(toDelete);
           },
         },
         {
