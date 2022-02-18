@@ -191,7 +191,7 @@ export class RosterPage implements OnInit {
 
     const alert = await this.alertController.create({
       header: 'Delete student?',
-      subHeader: `${student.firstName} ${student.lastName}`,
+      subHeader: '',
       message: 'This operation cannot be undone.',
       inputs: input,
       buttons: [
@@ -214,7 +214,7 @@ export class RosterPage implements OnInit {
 
   async presentDeleteChooseAlert(student: Student) {
     const input = [];
-    let toDelete: Student;
+    let toDelete: Student = student;
 
     this.students.forEach((el: Student) =>
       input.push({
@@ -236,7 +236,7 @@ export class RosterPage implements OnInit {
 
     const alert = await this.alertController.create({
       header: 'Delete student?',
-      subHeader: `${student.firstName} ${student.lastName}`,
+      subHeader: '',
       message: 'This operation cannot be undone.',
       inputs: input,
       buttons: [
