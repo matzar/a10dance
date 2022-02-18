@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService, Student } from '../students.service';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-roster',
@@ -18,6 +18,7 @@ export class RosterPage implements OnInit {
   // automatically exposes the parameter as a member of the component class - it is a handy shortcut TypeScript provides.
   constructor(
     public actionSheetController: ActionSheetController,
+    public alertController: AlertController,
     private studentService: StudentsService
   ) {}
 
@@ -54,7 +55,7 @@ export class RosterPage implements OnInit {
           },
           handler: () => {
             console.log('Delete clicked');
-            this.deleteStudent(student);
+            this.presentDeleteAlert(student);
           },
         },
         {
@@ -105,5 +106,25 @@ export class RosterPage implements OnInit {
 
     const { role, data } = await actionSheet.onDidDismiss();
     console.log('onDidDismiss resolved with role and data', role, data);
+  }
+
+  async presentDeleteAlert(student: Student) {
+    const alert = await this.alertController.create({
+      header: 'Delete student?',
+      subHeader: `${student.firstName} ${student.lastName}`,
+      message: 'This operation cannot be undone.',
+      buttons: [
+        {
+          text: 'Delete',
+          handler: () => this.deleteStudent(student),
+        },
+        {
+          text: 'Never mind',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    await alert.present();
   }
 }
