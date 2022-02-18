@@ -70,6 +70,19 @@ export class RosterPage implements OnInit {
           },
         },
         {
+          text: 'Delete Many',
+          role: 'destructive',
+          icon: 'trash',
+          id: 'delete-many-button',
+          data: {
+            type: 'delete',
+          },
+          handler: () => {
+            console.log('Delete Many clicked');
+            this.presentDeleteManyAlert(student);
+          },
+        },
+        {
           text: student.status ? 'Absent' : 'Present',
           icon: student.status ? 'eye-off' : 'eye',
           id: 'mark-present',
@@ -120,6 +133,29 @@ export class RosterPage implements OnInit {
   }
 
   async presentDeleteAlert(student: Student) {
+    const alert = await this.alertController.create({
+      header: 'Delete student?',
+      subHeader: `${student.firstName} ${student.lastName}`,
+      message: 'This operation cannot be undone.',
+      buttons: [
+        {
+          text: 'Delete',
+          role: 'destructive',
+          handler: () => {
+            this.deleteStudent(student);
+          },
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
+  async presentDeleteManyAlert(student: Student) {
     const input = [];
     const toDelete: Student[] = [];
 
@@ -147,10 +183,9 @@ export class RosterPage implements OnInit {
       inputs: input,
       buttons: [
         {
-          text: 'Delete',
-          role: 'destructive',
+          text: 'Delete many',
+          role: 'desctuctive',
           handler: () => {
-            this.deleteStudent(student);
             this.deleteStudents(toDelete);
           },
         },
