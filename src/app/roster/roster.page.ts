@@ -39,6 +39,15 @@ export class RosterPage implements OnInit {
     );
   }
 
+  async deleteStudents(toDelete: Student[]) {
+    toDelete.forEach(
+      (studentToDelete) =>
+        (this.students = this.students.filter(
+          (el) => el.id !== studentToDelete.id
+        ))
+    );
+  }
+
   async presentActionSheet(student: Student): Promise<void> {
     // The create function accepts an options object and returns a promise,
     // which resolves to the action sheet component itself.
@@ -112,7 +121,7 @@ export class RosterPage implements OnInit {
 
   async presentDeleteAlert(student: Student) {
     const input = [];
-    const toDelete = [];
+    const toDelete: Student[] = [];
 
     this.students.forEach((el: Student) =>
       input.push({
@@ -142,6 +151,7 @@ export class RosterPage implements OnInit {
           role: 'destructive',
           handler: () => {
             this.deleteStudent(student);
+            this.deleteStudents(toDelete);
           },
         },
         {
