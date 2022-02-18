@@ -32,9 +32,11 @@ export class RosterPage implements OnInit {
     student.status = !student.status;
   }
 
-  deleteStudent(student): Student[] {
-    this.students.splice(this.students.indexOf(student), 1);
-    return student;
+  async deleteStudent(students: Student) {
+    // this.students.splice(this.students.indexOf(students), 1);
+    this.students = this.students.filter(
+      (student) => student.id !== students.id
+    );
   }
 
   async presentActionSheet(student: Student): Promise<void> {
@@ -138,7 +140,9 @@ export class RosterPage implements OnInit {
         {
           text: 'Delete',
           role: 'destructive',
-          handler: () => this.deleteStudent(student),
+          handler: () => {
+            this.deleteStudent(student);
+          },
         },
         {
           text: 'Cancel',
