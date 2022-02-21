@@ -1,3 +1,50 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- To build the menu content, create an ion-menu element
+     as the first element inside of the ion-app element.
+     Set its contentId to main-content.
+     This value must match the HTML element id of the ion-router-outlet,
+     so add an id attribute to ion-router-outlet with the same value. -->
+  <ion-menu
+    side="start"
+    menuId="first"
+    contentId="ion-router-outlet"
+    type="overlay"
+  >
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <!-- Just after the ion-header, add an ion-content.
+      And just inside that, an ion-list.
+      This is where the menu will be constructed,
+      by iterating over the appPages array. -->
+    <ion-content>
+      <ion-list id="inbox-list">
+        <!-- let i = index.
+          This does what you probably suspect,
+          providing an integer representing the array index of each page in the array. -->
+        <ion-menu-toggle
+          auto-hide="false"
+          *ngFor="let page of appPages; let i = index"
+        >
+          <!-- specifying an attribute inside of square brackets
+            causes Angular to execute the expression in quotes
+            on the right side of the `=` sign. -->
+          <ion-item
+            routerDirection="root"
+            [routerLink]="[page.url]"
+            lines="full"
+            detail="false"
+            [class.selected]="selectedIndex === i"
+          >
+            <ion-icon slot="start" [name]="page.icon"></ion-icon>
+            <ion-label>{{ page.title }}</ion-label>
+          </ion-item></ion-menu-toggle
+        ></ion-list
+      >
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="ion-router-outlet"></ion-router-outlet>
 </ion-app>
