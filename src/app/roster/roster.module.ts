@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { RosterPageRoutingModule } from './roster-routing.module';
 
 import { RosterPage } from './roster.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RosterPageRoutingModule
+    RosterPageRoutingModule,
+    HeaderModule,
   ],
-  declarations: [RosterPage]
+  declarations: [RosterPage],
 })
 export class RosterPageModule {}
