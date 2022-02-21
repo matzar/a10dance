@@ -6,11 +6,8 @@
      This value must match the HTML element id of the ion-router-outlet,
      so add an id attribute to ion-router-outlet with the same value. -->
   <ion-menu side="start" menuId="first" contentId="main" type="overlay">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <app-header title="Menu" color="primary"></app-header>
+
     <!-- Just after the ion-header, add an ion-content.
       And just inside that, an ion-list.
       This is where the menu will be constructed,
