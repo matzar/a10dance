@@ -104,7 +104,8 @@ export class RosterPage implements OnInit {
         },
         {
           text: student.status ? 'Absent' : 'Present',
-          icon: student.status ? 'eye-off' : 'eye',
+          icon: student.status ? 'close-circle' : 'checkmark-circle',
+          role: student.status ? 'destructive' : 'selected',
           id: 'mark-present',
           handler: () => {
             this.setStudentStatus(student);
@@ -287,8 +288,9 @@ export class RosterPage implements OnInit {
         .map((el) => ` ${el.firstName} ${el.lastName}`)
         .toString(),
       icon: 'information-circle',
-      position: 'top',
+      position: 'middle',
       color: 'warning',
+      duration: 5000,
       // no duration attribute so the toast will have to dismissed by the user by clicking some of the buttons.
       buttons: [
         // {
@@ -300,11 +302,11 @@ export class RosterPage implements OnInit {
         //   },
         // },
         {
-          text: 'Done',
+          text: 'Dismiss',
           role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          },
+          // handler: () => {
+          //   console.log('Cancel clicked');
+          // },
         },
       ],
     });

@@ -36,13 +36,15 @@
         <ion-icon
           *ngIf="student.status===true"
           slot="end"
-          icon="eye"
+          icon="checkmark-circle"
+          color="success"
           (click)="setStudentStatus(student)"
         ></ion-icon>
         <ion-icon
           *ngIf="student.status===false"
           slot="end"
-          icon="eye-off"
+          icon="close-circle"
+          color="danger"
           (click)="setStudentStatus(student)"
         ></ion-icon>
       </ion-item>
