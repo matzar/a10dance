@@ -277,6 +277,15 @@ export class RosterPage implements OnInit {
       icon: 'warning',
       // If true, the keyboard will be automatically dismissed when the overlay is presented.
       keyboardClose: true,
+      buttons: [
+        {
+          text: 'UNDO',
+          role: 'cancel',
+          handler: () => {
+            this.students.push(student);
+          },
+        },
+      ],
     });
     toast.present();
   }
