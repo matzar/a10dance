@@ -1,9 +1,18 @@
 <app-header title="Roster">
   <ion-toolbar>
-    <ion-title><ion-icon icon="school"></ion-icon> Class Roster</ion-title>
+    <!-- <ion-title><ion-icon icon="school"></ion-icon> Class Roster</ion-title> -->
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home" text="home" icon="home">
-      </ion-back-button>
+      <!-- <ion-back-button defaultHref="home" text="home" icon="home">
+      </ion-back-button> -->
+      <ion-back-button
+        slot="icon-only"
+        defaultHref="home"
+        icon="home"
+        text=""
+      ></ion-back-button>
+      <ion-button>
+        <ion-icon slot="icon-only" icon="git-compare"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </app-header>
