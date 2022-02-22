@@ -232,7 +232,6 @@ export class RosterPage implements OnInit {
           this.toDeleteIndices.push(
             this.students.findIndex((x) => x === studentToDelete)
           );
-          this.toDeleteIndices.sort();
         },
         checked: false,
       })
@@ -354,9 +353,10 @@ export class RosterPage implements OnInit {
           text: 'UNDO',
           role: 'cancel',
           handler: () => {
-            this.students.push(...toDelete);
-            this.sortStudents();
-            this.sortPresentStudent();
+            toDelete.forEach((studentToDelete) => {
+              this.dele;
+              this.students.splice();
+            });
           },
         },
       ],
