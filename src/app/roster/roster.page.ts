@@ -13,6 +13,7 @@ import {
 })
 export class RosterPage implements OnInit {
   students: Student[] = [];
+  private sorted = false;
 
   // inject a reference to the StudentService into the
   // page's constructor.
@@ -35,6 +36,18 @@ export class RosterPage implements OnInit {
 
   setStudentStatus(student) {
     student.status = !student.status;
+  }
+
+  sortStudents() {
+    this.students = this.students.sort((a, b) => {
+      if (a.lastName > b.lastName) {
+        return 1;
+      }
+      if (a.lastName < b.lastName) {
+        return -1;
+      }
+      return 0;
+    });
   }
 
   // DATABASE FUNCTIONS
