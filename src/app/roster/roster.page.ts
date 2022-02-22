@@ -83,9 +83,7 @@ export class RosterPage implements OnInit {
   async deleteStudents(toDelete: Student[]) {
     toDelete.forEach(
       (studentToDelete) =>
-        (this.students = this.students.filter(
-          (el) => el.id !== studentToDelete.id
-        ))
+        (this.students = this.students.filter((el) => el !== studentToDelete))
     );
     this.presentToastWithOptions(toDelete);
   }
@@ -217,7 +215,7 @@ export class RosterPage implements OnInit {
     const input = [];
     const toDelete: Student[] = [];
 
-    this.students.forEach((studentToDelete: Student) =>
+    this.students.forEach((studentToDelete: Student, index) =>
       input.push({
         name: `${studentToDelete.firstName} ${studentToDelete.lastName}`,
         type: 'checkbox',
@@ -227,14 +225,8 @@ export class RosterPage implements OnInit {
           // console.log(
           //   `${studentToDelete.firstName} ${studentToDelete.lastName} selected to delete.`
           // );
-          // console.log(
-          //   `${studentToDelete.firstName} ${studentToDelete.lastName}'s student id before setting for deletion...`,
-          //   studentToDelete.id
-          // );
-          studentToDelete.id = this.students
-            .findIndex((el) => el === studentToDelete)
-            .toString();
-          // console.log('...and after', studentToDelete.id);
+
+          studentToDelete.id = index.toString();
 
           toDelete.push(studentToDelete);
         },
