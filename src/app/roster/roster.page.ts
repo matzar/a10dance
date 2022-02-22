@@ -13,6 +13,8 @@ import {
 })
 export class RosterPage implements OnInit {
   students: Student[] = [];
+  private toDeleteIndices: number[] = [];
+
   private sortedId = false;
   private sortedStatus = false;
 
@@ -215,7 +217,6 @@ export class RosterPage implements OnInit {
   async presentDeleteManyAlert(student: Student) {
     const input = [];
     const toDelete: Student[] = [];
-    const toDeleteIndices: number[] = [];
 
     this.students.forEach((studentToDelete: Student) =>
       input.push({
@@ -228,10 +229,10 @@ export class RosterPage implements OnInit {
             `${studentToDelete.firstName} ${studentToDelete.lastName} selected to delete.`
           );
           toDelete.push(studentToDelete);
-          toDeleteIndices.push(
+          this.toDeleteIndices.push(
             this.students.findIndex((x) => x === studentToDelete)
           );
-          toDeleteIndices.sort();
+          this.toDeleteIndices.sort();
         },
         checked: false,
       })
