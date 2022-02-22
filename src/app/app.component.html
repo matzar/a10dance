@@ -1,44 +1,44 @@
 <ion-app>
-  <ion-split-pane contentId="main-content"></ion-split-pane>
-  <!-- To build the menu content, create an ion-menu element
+  <ion-split-pane contentId="main">
+    <!-- To build the menu content, create an ion-menu element
      as the first element inside of the ion-app element.
      Set its contentId to main-content.
      This value must match the HTML element id of the ion-router-outlet,
      so add an id attribute to ion-router-outlet with the same value. -->
-  <ion-menu side="start" menuId="first" contentId="main-content" type="overlay">
-    <app-header title="Menu" color="primary"></app-header>
+    <ion-menu side="start" menuId="first" contentId="main" type="overlay">
+      <app-header title="Menu" color="primary"></app-header>
 
-    <!-- Just after the ion-header, add an ion-content.
+      <!-- Just after the ion-header, add an ion-content.
       And just inside that, an ion-list.
       This is where the menu will be constructed,
       by iterating over the appPages array. -->
-    <ion-content>
-      <ion-list id="inbox-list">
-        <!-- let i = index.
+      <ion-content>
+        <ion-list id="inbox-list">
+          <!-- let i = index.
           This does what you probably suspect,
           providing an integer representing the array index of each page in the array. -->
-        <ion-menu-toggle
-          auto-hide="false"
-          *ngFor="let page of appPages; let i = index"
-        >
-          <!-- specifying an attribute inside of square brackets
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let page of appPages; let i = index"
+          >
+            <!-- specifying an attribute inside of square brackets
             causes Angular to execute the expression in quotes
             on the right side of the `=` sign. -->
-          <ion-item
-            [routerLink]="[page.url]"
-            lines="full"
-            detail="false"
-            [class.selected]="selectedIndex === i"
-          >
-            <ion-icon slot="start" [name]="page.icon"></ion-icon>
-            <ion-label>{{ page.title }}</ion-label>
-          </ion-item></ion-menu-toggle
-        ></ion-list
-      >
-    </ion-content>
-  </ion-menu>
+            <ion-item
+              [routerLink]="[page.url]"
+              lines="full"
+              detail="false"
+              [class.selected]="selectedIndex === i"
+            >
+              <ion-icon slot="start" [name]="page.icon"></ion-icon>
+              <ion-label>{{ page.title }}</ion-label>
+            </ion-item></ion-menu-toggle
+          ></ion-list
+        >
+      </ion-content>
+    </ion-menu>
 
-  <!-- this is where the current rendering page gets swapped, meaning
+    <!-- this is where the current rendering page gets swapped, meaning
   when we go to eg. roster page, all of the content from roster.page.html
   gets pasted here and gets rendered.
 
@@ -51,5 +51,6 @@
   so Angular knows, which html file to alter with the methods provided in the definition of the @Component decorated class;
   html file has access to all public methods and member variables defined in its @Component decorated class.
   -->
-  <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>
