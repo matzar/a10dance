@@ -13,7 +13,6 @@ import {
 })
 export class RosterPage implements OnInit {
   students: Student[] = [];
-  private toDeleteIndices: number[] = [];
 
   private sortedId = false;
   private sortedStatus = false;
@@ -225,13 +224,19 @@ export class RosterPage implements OnInit {
         label: `${studentToDelete.firstName} ${studentToDelete.lastName}`,
         value: `${studentToDelete.firstName} ${studentToDelete.lastName}`,
         handler: () => {
-          console.log(
-            `${studentToDelete.firstName} ${studentToDelete.lastName} selected to delete.`
-          );
+          // console.log(
+          //   `${studentToDelete.firstName} ${studentToDelete.lastName} selected to delete.`
+          // );
+          // console.log(
+          //   `${studentToDelete.firstName} ${studentToDelete.lastName}'s student id before setting for deletion...`,
+          //   studentToDelete.id
+          // );
+          studentToDelete.id = this.students
+            .findIndex((el) => el === studentToDelete)
+            .toString();
+          // console.log('...and after', studentToDelete.id);
+
           toDelete.push(studentToDelete);
-          this.toDeleteIndices.push(
-            this.students.findIndex((x) => x === studentToDelete)
-          );
         },
         checked: false,
       })
@@ -353,10 +358,7 @@ export class RosterPage implements OnInit {
           text: 'UNDO',
           role: 'cancel',
           handler: () => {
-            toDelete.forEach((studentToDelete) => {
-              this.dele;
-              this.students.splice();
-            });
+            this.students.push(...toDelete);
           },
         },
       ],
