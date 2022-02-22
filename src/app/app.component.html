@@ -38,5 +38,18 @@
     </ion-content>
   </ion-menu>
 
+  <!-- this is where the current rendering page gets swapped, meaning
+  when we go to eg. roster page, all of the content from roster.page.html
+  gets pasted here and gets rendered.
+
+  Side note: html contents will change based on the eg. roster.page.ts which is
+  just a script to modify the roster.page.html; to paste html elements, change their attributes and so on.
+
+  This is going to be true for any other page, their html will get altered
+  with their @Component decorated class in .ts file.
+  That's why we need to pass the path to the html to `templateUrl`  - in the @Component constructor options -
+  so Angular knows, which html file to alter with the methods provided in the definition of the @Component decorated class;
+  html file has access to all public methods and member variables defined in its @Component decorated class.
+  -->
   <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
