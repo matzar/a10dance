@@ -350,7 +350,24 @@ export class RosterPage implements OnInit {
           text: 'UNDO',
           role: 'cancel',
           handler: () => {
-            this.students.push(...toDelete);
+            // sorting array with deleted students
+            toDelete.sort((a, b) => {
+              if (a.id > b.id) {
+                return 1;
+              }
+              if (a.id < b.id) {
+                return -1;
+              }
+              return 0;
+            });
+            // adding students back to the array at their original place
+            toDelete.forEach((deletedStudent) => {
+              this.students.splice(
+                Number(deletedStudent.id),
+                0,
+                deletedStudent
+              );
+            });
           },
         },
       ],
