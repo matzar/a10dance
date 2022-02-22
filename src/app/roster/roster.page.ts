@@ -223,9 +223,8 @@ export class RosterPage implements OnInit {
         label: `${el.firstName} ${el.lastName}`,
         value: `${el.firstName} ${el.lastName}`,
         handler: () => {
-          console.log(`${el.firstName} ${el.lastName} selected`);
+          console.log(`${el.firstName} ${el.lastName} selected to delete.`);
           toDelete.push(el);
-          console.log(toDelete);
         },
         checked: false,
       })
