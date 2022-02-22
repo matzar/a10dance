@@ -41,13 +41,22 @@ export class RosterPage implements OnInit {
   sortStudents() {
     this.students = this.students.sort((a, b) => {
       if (a.lastName > b.lastName) {
-        return 1;
+        if (this.sorted) {
+          return -1;
+        } else {
+          return 1;
+        }
       }
       if (a.lastName < b.lastName) {
-        return -1;
+        if (this.sorted) {
+          return 1;
+        } else {
+          return -1;
+        }
       }
       return 0;
     });
+    this.sorted = !this.sorted;
   }
 
   // DATABASE FUNCTIONS
