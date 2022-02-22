@@ -215,22 +215,27 @@ export class RosterPage implements OnInit {
   async presentDeleteManyAlert(student: Student) {
     const input = [];
     const toDelete: Student[] = [];
+    const toDeleteIndices: number[] = [];
 
-    this.students.forEach((el: Student) =>
+    this.students.forEach((studentToDelete: Student) =>
       input.push({
-        name: `${el.firstName} ${el.lastName}`,
+        name: `${studentToDelete.firstName} ${studentToDelete.lastName}`,
         type: 'checkbox',
-        label: `${el.firstName} ${el.lastName}`,
-        value: `${el.firstName} ${el.lastName}`,
+        label: `${studentToDelete.firstName} ${studentToDelete.lastName}`,
+        value: `${studentToDelete.firstName} ${studentToDelete.lastName}`,
         handler: () => {
-          console.log(`${el.firstName} ${el.lastName} selected to delete.`);
-          toDelete.push(el);
+          console.log(
+            `${studentToDelete.firstName} ${studentToDelete.lastName} selected to delete.`
+          );
+          toDelete.push(studentToDelete);
+          toDeleteIndices.push(
+            this.students.findIndex((x) => x === studentToDelete)
+          );
+          toDeleteIndices.sort();
         },
         checked: false,
       })
     );
-
-    console.log(input);
 
     const alert = await this.alertController.create({
       header: 'Delete student?',
