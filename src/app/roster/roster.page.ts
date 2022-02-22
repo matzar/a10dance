@@ -13,7 +13,7 @@ import {
 })
 export class RosterPage implements OnInit {
   students: Student[] = [];
-  private sorted = false;
+  private sortedId = false;
 
   // inject a reference to the StudentService into the
   // page's constructor.
@@ -48,10 +48,10 @@ export class RosterPage implements OnInit {
       }
       return 0;
     });
-    if (this.sorted) {
+    if (this.sortedId) {
       this.students = this.students.reverse();
     }
-    this.sorted = !this.sorted;
+    this.sortedId = !this.sortedId;
   }
 
   sortPresentStudent() {
