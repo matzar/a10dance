@@ -32,12 +32,14 @@
           slot="start"
           *ngIf="student.gender==='male'"
           icon="man-outline"
+          style="color: rgb(89, 244, 244)"
         ></ion-icon>
 
         <ion-icon
           slot="start"
           *ngIf="student.gender==='female'"
           icon="woman-outline"
+          style="color: pink"
         ></ion-icon>
 
         <ion-label (click)="presentActionSheet(student)">

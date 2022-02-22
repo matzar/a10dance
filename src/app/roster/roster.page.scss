@@ -1,11 +1,11 @@
-@mixin icon-color($icon) {
-  @if $icon {
-    color: pink;
-  } @else {
-    color: #add8e6;
-  }
-}
+// @mixin icon-color($icon) {
+//   @if $icon {
+//     color: pink;
+//   } @else {
+//     color: #add8e6;
+//   }
+// }
 
-ion-icon {
-  @include icon-color($icon: false);
-}
+// ion-icon {
+//   @include icon-color($icon: false);
+// }
