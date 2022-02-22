@@ -54,7 +54,17 @@ export class RosterPage implements OnInit {
     this.sorted = !this.sorted;
   }
 
-  sortPresentStudent() {}
+  sortPresentStudent() {
+    this.students = this.students.sort((a, b) => {
+      if (a.status > b.status) {
+        return -1;
+      }
+      if (a.status < b.status) {
+        return 1;
+      }
+      return 0;
+    });
+  }
 
   // DATABASE FUNCTIONS
   async deleteStudent(student: Student) {
