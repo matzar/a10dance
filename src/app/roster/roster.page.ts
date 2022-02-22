@@ -54,6 +54,8 @@ export class RosterPage implements OnInit {
     this.sorted = !this.sorted;
   }
 
+  sortPresentStudent() {}
+
   // DATABASE FUNCTIONS
   async deleteStudent(student: Student) {
     // this.students.splice(this.students.indexOf(students), 1);

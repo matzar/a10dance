@@ -13,9 +13,12 @@
       <ion-button (click)="sortStudents()">
         <ion-icon
           slot="icon-only"
-          icon="git-compare"
+          name="git-compare"
           style="rotate: 90deg"
         ></ion-icon>
+      </ion-button>
+      <ion-button (click)="sortPresentStudent()">
+        <ion-icon name="checkmark"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -44,14 +47,14 @@
         <ion-icon
           slot="start"
           *ngIf="student.gender==='male'"
-          icon="man-outline"
+          name="man-outline"
           style="color: rgb(89, 244, 244)"
         ></ion-icon>
 
         <ion-icon
           slot="start"
           *ngIf="student.gender==='female'"
-          icon="woman-outline"
+          name="woman-outline"
           style="color: pink"
         ></ion-icon>
 
@@ -61,14 +64,14 @@
         <ion-icon
           *ngIf="student.status===true"
           slot="end"
-          icon="checkmark-circle"
+          name="checkmark-circle"
           color="success"
           (click)="setStudentStatus(student)"
         ></ion-icon>
         <ion-icon
           *ngIf="student.status===false"
           slot="end"
-          icon="close-circle"
+          name="close-circle"
           color="danger"
           (click)="setStudentStatus(student)"
         ></ion-icon>
