@@ -33,6 +33,7 @@ export class RosterPage implements OnInit {
   // which requires you to implement the `OnInit` Angular hook.
   ngOnInit() {
     this.students = this.studentService.getAllStudents();
+    this.sortStudents();
   }
 
   setStudentStatus(student) {
@@ -317,6 +318,8 @@ export class RosterPage implements OnInit {
           role: 'cancel',
           handler: () => {
             this.students.push(student);
+            this.sortedId = !this.sortedId;
+            this.sortStudents();
           },
         },
       ],
@@ -349,6 +352,8 @@ export class RosterPage implements OnInit {
           role: 'cancel',
           handler: () => {
             this.students.push(...toDelete);
+            this.sortStudents();
+            this.sortPresentStudent();
           },
         },
       ],
