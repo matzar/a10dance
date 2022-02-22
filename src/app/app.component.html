@@ -1,11 +1,11 @@
 <ion-app>
-  <ion-split-pane contentId="main"></ion-split-pane>
+  <ion-split-pane contentId="main-content"></ion-split-pane>
   <!-- To build the menu content, create an ion-menu element
      as the first element inside of the ion-app element.
-     Set its contentId to main.
+     Set its contentId to main-content.
      This value must match the HTML element id of the ion-router-outlet,
      so add an id attribute to ion-router-outlet with the same value. -->
-  <ion-menu side="start" menuId="first" contentId="main" type="overlay">
+  <ion-menu side="start" menuId="first" contentId="main-content" type="overlay">
     <app-header title="Menu" color="primary"></app-header>
 
     <!-- Just after the ion-header, add an ion-content.
@@ -38,5 +38,5 @@
     </ion-content>
   </ion-menu>
 
-  <ion-router-outlet id="main"></ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
