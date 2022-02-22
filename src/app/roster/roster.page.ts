@@ -302,11 +302,11 @@ export class RosterPage implements OnInit {
         //   },
         // },
         {
-          text: 'Dismiss',
+          text: 'UNDO',
           role: 'cancel',
-          // handler: () => {
-          //   console.log('Cancel clicked');
-          // },
+          handler: () => {
+            this.students.push(...toDelete);
+          },
         },
       ],
     });
