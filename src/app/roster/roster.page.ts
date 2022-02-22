@@ -33,7 +33,6 @@ export class RosterPage implements OnInit {
   // which requires you to implement the `OnInit` Angular hook.
   ngOnInit() {
     this.students = this.studentService.getAllStudents();
-    this.sortStudents();
   }
 
   setStudentStatus(student) {
@@ -75,8 +74,9 @@ export class RosterPage implements OnInit {
   // DATABASE FUNCTIONS
   async deleteStudent(student: Student) {
     // this.students.splice(this.students.indexOf(students), 1);
+    const deletedStudentIndex = this.students.findIndex((el) => el === student);
     this.students = this.students.filter((el) => el.id !== student.id);
-    this.presentToast(student);
+    this.presentToast(student, deletedStudentIndex);
   }
 
   async deleteStudents(toDelete: Student[]) {
@@ -302,7 +302,7 @@ export class RosterPage implements OnInit {
   }
 
   // TOASTS
-  async presentToast(student) {
+  async presentToast(student, deletedStudentIndex) {
     const toast = await this.toastController.create({
       message: `${student.firstName} ${student.lastName} deleted.`,
       color: 'danger',
@@ -317,9 +317,7 @@ export class RosterPage implements OnInit {
           text: 'UNDO',
           role: 'cancel',
           handler: () => {
-            this.students.push(student);
-            this.sortedId = !this.sortedId;
-            this.sortStudents();
+            this.students.splice(deletedStudentIndex, 0, student);
           },
         },
       ],
