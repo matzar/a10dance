@@ -15,6 +15,7 @@ export interface Student {
   id: string;
   firstName: string;
   lastName: string;
+  gender?: string;
   birthDate?: string;
   parentName?: string;
   parentEmail?: string;
@@ -30,16 +31,76 @@ export interface Student {
 }
 
 const mockStudents: Student[] = [
-  { id: '1', firstName: 'Greg', lastName: 'Marine', status: true },
-  { id: '2', firstName: 'Jonathan', lastName: 'Bennett', status: true },
-  { id: '3', firstName: 'Neil', lastName: 'Estandarte', status: true },
-  { id: '4', firstName: 'Jen', lastName: 'Townsend', status: false },
-  { id: '5', firstName: 'Casey', lastName: 'McBride', status: true },
-  { id: '6', firstName: 'Diane', lastName: 'Rivera', status: false },
-  { id: '7', firstName: 'Troy', lastName: 'Gutierrez', status: false },
-  { id: '8', firstName: 'Priscilla', lastName: 'Little', status: true },
-  { id: '9', firstName: 'Bobby', lastName: 'Robbins', status: true },
-  { id: '10', firstName: 'Edmund', lastName: 'Gardner', status: true },
+  {
+    id: '1',
+    firstName: 'Greg',
+    lastName: 'Marine',
+    gender: 'male',
+    status: true,
+  },
+  {
+    id: '2',
+    firstName: 'Jonathan',
+    lastName: 'Bennett',
+    gender: 'male',
+    status: true,
+  },
+  {
+    id: '3',
+    firstName: 'Neil',
+    lastName: 'Estandarte',
+    gender: 'male',
+    status: true,
+  },
+  {
+    id: '4',
+    firstName: 'Jen',
+    lastName: 'Townsend',
+    gender: 'female',
+    status: false,
+  },
+  {
+    id: '5',
+    firstName: 'Casey',
+    lastName: 'McBride',
+    gender: 'female',
+    status: true,
+  },
+  {
+    id: '6',
+    firstName: 'Diane',
+    lastName: 'Rivera',
+    gender: 'female',
+    status: false,
+  },
+  {
+    id: '7',
+    firstName: 'Troy',
+    lastName: 'Gutierrez',
+    gender: 'male',
+    status: false,
+  },
+  {
+    id: '8',
+    firstName: 'Priscilla',
+    lastName: 'Little',
+    gender: 'female',
+    status: true,
+  },
+  {
+    id: '9',
+    firstName: 'Bobby',
+    lastName: 'Robbins',
+    gender: 'male',
+    status: true,
+  },
+  {
+    id: '10',
+    firstName: 'Edmund',
+    lastName: 'Gardner',
+    gender: 'male',
+    status: true,
+  },
 ];
 
 @Injectable({

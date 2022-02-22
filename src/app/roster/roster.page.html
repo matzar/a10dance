@@ -28,7 +28,17 @@
           </ion-button>
         </ion-buttons>
         <!-- ion-icon and ion-label are siblings here -->
-        <ion-icon slot="start" icon="person"></ion-icon>
+        <ion-icon
+          slot="start"
+          *ngIf="student.gender==='male'"
+          icon="man"
+        ></ion-icon>
+
+        <ion-icon
+          slot="start"
+          *ngIf="student.gender==='female'"
+          icon="woman"
+        ></ion-icon>
 
         <ion-label (click)="presentActionSheet(student)">
           {{student.firstName}} {{student.lastName}}
