@@ -16,6 +16,11 @@ export class AppComponent {
       url: '/roster',
       icon: 'people',
     },
+    {
+      title: 'Loading Bars',
+      url: '/loading-bar',
+      icon: 'aperture',
+    },
   ];
   public selectedIndex = 0;
 
