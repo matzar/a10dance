@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'roster',
     loadChildren: () => import('./roster/roster.module').then( m => m.RosterPageModule)
   },
+  {
+    path: 'loading-bar',
+    loadChildren: () => import('./loading-bar/loading-bar.module').then( m => m.LoadingBarPageModule)
+  },
 ];
 
 @NgModule({
