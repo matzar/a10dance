@@ -13,9 +13,9 @@ import { HeaderModule } from './header/header.module';
   entryComponents: [],
   imports: [
     BrowserModule,
+    HeaderModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HeaderModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

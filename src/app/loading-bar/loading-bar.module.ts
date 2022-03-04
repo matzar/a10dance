@@ -8,13 +8,16 @@ import { LoadingBarPageRoutingModule } from './loading-bar-routing.module';
 
 import { LoadingBarPage } from './loading-bar.page';
 
+import { HeaderModule } from '../header/header.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoadingBarPageRoutingModule
+    HeaderModule,
+    LoadingBarPageRoutingModule,
   ],
-  declarations: [LoadingBarPage]
+  declarations: [LoadingBarPage],
 })
 export class LoadingBarPageModule {}

@@ -14,8 +14,8 @@ import { HeaderModule } from '../header/header.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    RosterPageRoutingModule,
     HeaderModule,
+    RosterPageRoutingModule,
   ],
   declarations: [RosterPage],
 })
